@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'jingDong.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jingDong',
+        'NAME': 'management',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',

@@ -96,7 +96,7 @@ body
 .Reg_log_style .frame_style.form_error i{ display:block}
 .Reg_log_style .frame_style i{ display:none}
 .Reg_log_style .frame_style{ position:relative; height:40px; padding:0px 5px; margin-bottom:15px; border:1px solid #ddd; line-height:40px; width:286px;}
-.Reg_log_style .frame_style label{ background:url(../images/icon_login.png) no-repeat; float:left; width:40px; margin-top:2px; height:35px;border-right:1px solid #ddd;}
+.Reg_log_style .frame_style label{ background:url(../imgs/icon_login.png) no-repeat; float:left; width:40px; margin-top:2px; height:35px;border-right:1px solid #ddd;}
 .Reg_log_style .frame_style input{ height:30px; padding:5px 10px; border:0px; width:226px; font-size:14px; z-index:11; position:relative; background:0 none }
 .Reg_log_style .frame_style label.password_icon{ background-position: -5px 0px;}
 .Reg_log_style .frame_style label.user_icon{background-position: -5px -30px;}
@@ -392,7 +392,7 @@ body
 .page_right_style.Widescreen{ left:0px}
 .show_btn {display: none;position: fixed;z-index: 1111;top:50%}
 .show_btn span {
-	background: url(../images/indexhead_sprite.png) -46px -30px no-repeat;
+	background: url(../imgs/indexhead_sprite.png) -46px -30px no-repeat;
 	width: 25px;
 	height: 100px;
 	overflow: hidden;
@@ -1064,7 +1064,7 @@ body
     height: 134px;
     left: -10px;
     top: -29px; 
-	background-image:url(../images/ban1.png); 
+	background-image:url(../images/ban1.png);
 	background-repeat:no-repeat; 
 	z-index:11
 }

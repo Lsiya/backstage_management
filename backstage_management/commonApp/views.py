@@ -1,55 +1,60 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from .models import User
+
+from django.shortcuts import render
+from django.http import JsonResponse
+# PIL是python2版本的图像处理库，不过现在用Pillow比PIL强大，是python3的处理库
+from PIL import Image, ImageDraw, ImageFont
+from django.http import HttpResponse
+from django.shortcuts import render, redirect
+import random
+from io import BytesIO
+
 from django.shortcuts import render, render_to_response
 from django import forms
 from django.http.response import HttpResponseRedirect
 import re
-# Create your views here.
-class LoginForm(forms.Form):
-    username = forms.CharField(label='用户名',
-                               error_messages={ 'invalid': "用户名不能超过10位字符"})
-    password = forms.CharField(label='密  码', widget=forms.PasswordInput,
-                               error_messages={'invalid': '密码不能超过15字符'})
+from django.contrib.auth import authenticate
+from .models import User
+import django.utils.timezone as timezone
 
-class UserForm(forms.Form):
-    username = forms.CharField()
-    password = forms.CharField()
-    email = forms.EmailField()
+# Create your views here.
 def index(request):
-    return render(request, '../templates/commonApp/index.html')
+   if request.session.get('username'):
+        return render(request, '../templates/commonApp/index.html')
+   else:
+       return render(request, '../templates/commonApp/login.html')
+
 def login(request):
     if request.method == 'POST':
-        uf = LoginForm(request.POST)
-        if uf.is_valid():
-            username = uf.cleaned_data['username']
-            password = uf.cleaned_data['password']
-            userJudge = User.objects.filter(username=username,password=password)
-            if userJudge:
-                response = HttpResponseRedirect('/')
-                response.set_cookie('cookie_username', username, 300)
-                return response
-            else:
-                return render(request, '../templates/commonApp/fixLogin.html', {'uf': uf, 'error': "用户名或密码错误"})
-    else:
-        uf = LoginForm()
-        return render(request, '../templates/commonApp/fixlogin.html', {'uf': uf})
+        username = request.POST['username']
+        password = request.POST['userpwd']
 
-def regist(request):
-    Method = request.method
-    if Method == 'POST':
-        uf = UserForm(request.POST)
-        if uf.is_valid():
-            username = uf.cleaned_data['username']
-            password = uf.cleaned_data['password']
-            email = uf.cleaned_data['email']
-            User.objects.create(username=username, password=password,email=email)
-            User.save()
-            return render(request, '../templates/commonApp/fixLogin.html')
+        info = User.objects.filter(username=username, password=password)
+        if info.exists():
+            info_dict = {'username': username}
+            request.session['username']=username
+            return render(request, '../templates/commonApp/index.html',{'info_dict': info_dict})
         else:
-            uf = UserForm()
-        return render(request, '../templates/commonApp/index.html', {'uf': uf})
-def logout(request):
-    response = HttpResponseRedirect('/')
-    response.delete_cookie('cookie_username')
-    return response
+            return render(request, '../templates/commonApp/login.html',{'errors': '用户名或密码不正确'})
+    else:
+        return render(request, '../templates/commonApp/login.html')
+def regist(request):
+    user = User.objects.filter(username=request.POST['user-name'])
+    if user.exists():
+        return render(request,'../templates/commonApp/index.html',{'errors': '用户已存在'})
+    else:
+        username = request.POST['user-name']
+        password = request.POST['userpassword']
+        sex = request.POST.get('sex')
+        phone = request.POST['user-tel']
+        email = request.POST['email']
+        add_date = timezone.now()
+        note = request.POST['note']
+        admin_role = request.POST.get('admin-role')
+        User.objects.create(username=username, password=password, sex=sex, phone=phone, email=email, add_date=add_date, note=note, admin_role=admin_role)
+        return render('../templates/commonApp/login.html')
+# def logout(request):
+
+
+
