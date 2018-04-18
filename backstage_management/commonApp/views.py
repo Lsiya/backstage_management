@@ -21,7 +21,7 @@ import django.utils.timezone as timezone
 # Create your views here.
 def index(request):
    if request.session.get('username'):
-        return render(request, '../templates/commonApp/index.html')
+        return render(request,'../templates/commonApp/index.html')
    else:
        return render(request, '../templates/commonApp/login.html')
 
@@ -54,7 +54,8 @@ def regist(request):
         admin_role = request.POST.get('admin-role')
         User.objects.create(username=username, password=password, sex=sex, phone=phone, email=email, add_date=add_date, note=note, admin_role=admin_role)
         return render('../templates/commonApp/login.html')
-# def logout(request):
-
+def logout(request):
+    del request.session['username']
+    return render(request, '../templates/commonApp/login.html')
 
 
