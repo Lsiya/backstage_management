@@ -1,0 +1,48 @@
+{% load staticfiles %}
+<div class="pages">
+  <div data-page="projects" class="page no-toolbar no-navbar">
+    <div class="page-content">
+
+     <div class="navbarpages">
+       <div class="navbar_home_link"><a href="#" data-panel="left" class="open-panel"><img src="{% static 'images/icons/white/user.png' %}" alt="" title="" /></a></div>
+       <div class="navbar_page_center">About</div>
+            <div class="menu_open_icon_white"><a href="{% url 'wapApp:index' %}"><img src="{% static 'images/menu_open.png' %}" alt="" title="" /></a></div>
+     </div>
+     <div id="pages_maincontent">
+
+      <h2 class="page_subtitle">Get in touch</h2>
+
+            <h2 id="Note"></h2>
+            <div class="contactform">
+            <form class="cmxform" id="ContactForm" method="post" action="">
+            <label>Name:</label>
+            <input type="text" name="ContactName" id="ContactName" value="" class="form_input required" />
+            <label>Email:</label>
+            <input type="text" name="ContactEmail" id="ContactEmail" value="" class="form_input required email" />
+            <label>Message:</label>
+            <textarea name="ContactComment" id="ContactComment" class="form_textarea textarea required" rows="" cols=""></textarea>
+            <input type="submit" name="submit" class="form_submit" id="submit" value="Send" />
+            <input class="" type="hidden" name="to"  value="youremail@yourwebsite.com" />
+            <input class="" type="hidden" name="subject" value="Contacf form message" />
+            <label id="loader" style="display:none;"><img src="{% static 'images/loader.gif' %}" alt="Loading..." id="LoadingGraphic" /></label>
+            </form>
+            </div>
+
+      <h3>Our Location</h3>
+<iframe src="{% url 'wapApp:ditu' %}" width="100%" height="100%" frameborder="0" style="border:0">
+
+      </iframe>
+      <blockquote>
+      Adress: New York 23066 / Pacific Street / Brooklyn <br />
+      Email: email@yourwebsite.com <br />
+      Mobile: +900 456 567 77
+      </blockquote>
+
+      <div class="call_button"><a href="">Call Us Now!</a></div>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

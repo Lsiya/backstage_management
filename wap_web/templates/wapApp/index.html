@@ -1,0 +1,135 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}" />
+<link rel="apple-touch-startup-image" href="{% static 'images/apple-touch-startup-image-320x460.png' %}" />
+<title>wap页面</title>
+<link rel="stylesheet" href="{% static 'css/framework7.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/swipebox.css' %}" />
+</head>
+<body id="mobile_wrap">
+    <div class="statusbar-overlay"></div>
+
+    <div class="panel-overlay"></div>
+
+    <div class="panel panel-left panel-cover">
+      <div class="user_login_info">
+			<div class="user_thumb"><img src="{% static 'images/photos/photo8.jpg' %}" alt="" title="" /></div>
+			<h2>您好&nbsp;{{ request.session.username  }}</h2>
+			<p>编辑您的账户设置</p>
+              <nav class="list-nav-small">
+                <ul>
+                  <li class="about-icon-small"><a href="about.html" class="close-panel">Profile</a></li>
+                  <li class="tools-icon-small"><a href="features.html" class="close-panel">Settings</a></li>
+                  <li class="lock-icon-small"><a href="features.html" class="close-panel">Account</a></li>
+                  <li class="envelope-icon-small"><a href="features.html" class="close-panel">Messages</a></li>
+                  <li class="logout-icon-small"><a href="{% url 'wapApp:logout' %}"  class="close-panel">Logout</a></li>
+                </ul>
+              </nav>
+      </div>
+    </div>
+
+    <div class="views">
+
+      <div class="view view-main">
+
+
+        <div class="pages navbar-through toolbar-through">
+
+          <div data-page="index" class="page homepage">
+            <div class="page-content">
+            
+                  <!-- Slider -->
+                  <div class="swiper-container swiper-init" data-effect="slide" data-pagination=".swiper-pagination">
+                    <div class="swiper-wrapper">
+                    
+                      <div class="swiper-slide" >
+                          <nav class="list-nav">
+                            <ul>
+                              <li class="about-icon"><a href="{% url 'wapApp:about' %}">关于</a></li>
+                              <li class="responsive-icon"><a href="#" data-panel="left" class="open-panel">个人中心</a></li>
+                              <li class="features-icon"><a href="{% url 'wapApp:features' %}">应用</a></li>
+                              <li class="photos-icon"><a href="{% url 'wapApp:photos' %}">照片墙</a></li>
+                              <li class="video-icon"><a href="{% url 'wapApp:security' %}">视频</a></li>
+                              <li class="blog-icon"><a href="blog.html">博客</a></li>
+                              <li class="toogle-icon"><a href="toogle.html">Toogle</a></li>
+                              <li class="docs-icon"><a href="tabs.html">Tabs</a></li>
+                              <li class="contact-icon"><a href="{% url 'wapApp:contact' %}">邮件</a></li>
+                            </ul>
+                          </nav>
+                      </div>
+                      
+                      <div class="swiper-slide">
+                          <nav class="list-nav-half">
+                            <ul>
+                              <li class="blog-icon-half"><a href="blog.html">Blog</a></li>
+                              <li class="toogle-icon-half"><a href="toogle.html">Toogle</a></li>
+                              <li class="docs-icon-half"><a href="tabs.html">Tabs</a></li>
+                              <li class="contact-icon-half"><a href="{% url 'wapApp:contact' %}">Contact</a></li>
+                            </ul>
+                          </nav>
+                      </div> 
+                      <div class="swiper-slide">
+                          <span>CALL <br /> US NOW</span>
+                          <span class="subtitle">get in touch</span>
+                          <a href="" class="swiper_read_more">click to call now!</a>                      
+                      </div>
+                          
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>     
+                           
+            </div>
+          </div>
+        </div>
+      
+        <div class="toolbar">
+              <div class="toolbar-inner" style="background-color:#0f8587 ">
+              <ul class="toolbar_icons icons_4row">
+                   <li><a href="{% url 'wapApp:index' %}"><img src="{% static 'images/icons/white/home.png' %}" alt="" title="" /></a></li>
+                   <li><a href="{% url 'wapApp:security' %}"><img src="{% static 'images/icons/white/lock.png' %}" alt="" title="" /></a></li>
+                   <li><a href="#" data-popup=".popup-social" class="open-popup"><img src="{% static 'images/icons/white/heart.png' %}" alt="" title="" /></a></li>
+                   <li><a href="{% url 'wapApp:user' %}" ><img src="{% static 'images/icons/white/user.png' %}" alt="" title="" /></a></li>
+               </ul>
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Popup -->
+    <!-- Services Popup -->
+    <div class="popup popup-social">
+    <div class="content-block">
+      <h4>Social Share</h4>
+      <p>Share icons solution that allows you share and increase your social popularity.</p>
+      <ul class="social_share">
+      <li><a href="#"><img src="{% static 'images/icons/white/twitter.png' %}" alt="" title="" /></a></li>
+      <li><a href="#"><img src="{% static 'images/icons/white/facebook.png' %}" alt="" title="" /></a></li>
+      <li><a href="#"><img src="{% static 'images/icons/white/googleplus.png' %}" alt="" title="" /></a></li>
+      <li><a href="#"><img src="{% static 'images/icons/white/dribbble.png' %}" alt="" title="" /></a></li>
+      <li><a href="#"><img src="{% static 'images/icons/white/linkedin.png' %}" alt="" title="" /></a></li>
+      <li><a href="#"><img src="{% static 'images/icons/white/pinterest.png' %}" alt="" title="" /></a></li>
+      </ul>
+      <div class="close_popup_button"><a href="#" class="close-popup">Close</a></div>
+    </div>
+    </div>
+	
+	
+<script type="text/javascript" src="{% static 'js/jquery-1.10.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/framework7.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/my-app.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.swipebox.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.fitvids.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/email.js' %}"></script>
+
+
+
+</body>
+</html>

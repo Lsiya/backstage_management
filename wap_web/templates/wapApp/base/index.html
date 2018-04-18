@@ -1,0 +1,305 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI布局的商城</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'aui/css/aui.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'shop/css/mobile-base.000.min.css' %}" media="all" />
+<link rel="stylesheet" type="text/css" href="{% static 'shop/css/jquery.fancybox.css' %}" media="all" />
+<script type="text/javascript" src="{% static 'shop/js/libs.000.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'shop/js/mobile-base.000.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'shop/js/jquery.fancybox.pack.js' %}"></script>
+
+
+    <style type="text/css">
+        #demo {
+            width: 4rem;
+            height: 4rem;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -2rem;
+            margin-top: -2rem;
+            background-color: #e0e0e0;
+            border-radius: 50%;
+            line-height: 4rem;
+            text-align: center;
+            color: #212121;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body  class="lang-zh cms-index-index cms-home lang-mobile_zh">
+  <div id="a">
+      <div id="wrapper">
+      <section id="col-main" class="col-main ">
+
+				<div id="homepage">
+                             <div id="home-slides">
+        <p><a href="mobile_zh/hiking-and-camping-textiles/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_featured/2014-1-29/mobile_Home_page_featured_04.jpg" alt="" /></a></p>
+<p><a href="mobile_zh/sailing-jackets/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_featured/2014-1-29/mobile_Home_page_featured_04.jpg" alt="" /></a></p>
+<p><a href="mobile_zh/winter-sports-clothes/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_featured/2014-1-29/mobile_Home_page_featured_04.jpg" alt="" /></a></p>    </div>
+
+    <div class="quick-access">
+        <h1 class="logo"><a href="mobile_zh/default.htm" title="迪卡侬旗舰店 - 触屏版"><strong>迪卡侬旗舰店 - 触屏版</strong></a></h1>
+        <a href="mobile_zh/decathlon/store/list/default.htm" class="locator-link">实体店</a>
+    </div>
+
+    <form id="search_mini_form" action="http://m.decathlon.com.cn/mobile_zh/catalogsearch/result/" method="get" class="search-mini">
+    <label for="search-input">&nbsp;</label>
+    <input type="search" name="q" id="search-input" placeholder="输入关键字" maxlength="128" class="search-input" />
+    <button type="submit" title="搜索" style="" class="button"><span><span>搜索</span></span></button>
+</form>
+
+<script>
+//<![CDATA[
+    var searchForm = new VarienForm('search_mini_form');
+//]]>
+</script>    <div id="home-main-menu">
+        <ul class="tabs">
+            <li class="current"><span>商品分类</span></li>
+            <li><span>我的账号</span></li>
+        </ul>
+        <div class="content">
+            <div class="home-nav active">
+                <ul>
+<li><a class="sports" href="mobile_zh/decathlon/categoriesmobile/default.htm">全部分类</a></li>
+<li><a class="hiking-and-camping" href="mobile_zh/decathlon/categoriesmobile/index/cate/7/default.htm">户外山地</a></li>
+<li><a class="fitness" href="mobile_zh/decathlon/categoriesmobile/index/cate/8/default.htm">健身运动</a></li>
+<li><a class="racket-sports" href="mobile_zh/decathlon/categoriesmobile/index/cate/9/default.htm">球拍类运动</a></li>
+<li><a class="running" href="mobile_zh/decathlon/categoriesmobile/index/cate/10/default.htm">跑步运动</a></li>
+<li><a class="walking" href="mobile_zh/decathlon/categoriesmobile/index/cate/11/default.htm">步行运动</a></li>
+<li><a class="water-sports" href="mobile_zh/decathlon/categoriesmobile/index/cate/12/default.htm">水上运动</a></li>
+<li><a class="swimming" href="mobile_zh/decathlon/categoriesmobile/index/cate/13/default.htm">游泳运动</a></li>
+</ul>
+<ul>
+<li><a class="cycling" href="mobile_zh/decathlon/categoriesmobile/index/cate/14/default.htm">自行车运动</a></li>
+<li><a class="roller-skates" href="mobile_zh/decathlon/categoriesmobile/index/cate/15/default.htm">轮滑运动</a></li>
+<li><a class="golf" href="mobile_zh/decathlon/categoriesmobile/index/cate/16/default.htm">高尔夫</a></li>
+<li><a class="team-sports" href="mobile_zh/decathlon/categoriesmobile/index/cate/17/default.htm">团队运动</a></li>
+<li><a class="winter-sports" href="mobile_zh/decathlon/categoriesmobile/index/cate/18/default.htm">滑雪运动</a></li>
+<li><a class="equestrian" href="mobile_zh/decathlon/categoriesmobile/index/cate/20/default.htm">马术运动</a></li>
+<li><a class="fishing" href="mobile_zh/decathlon/categoriesmobile/index/cate/21/default.htm">钓鱼运动</a></li>
+<li><a class="target-sports" href="mobile_zh/decathlon/categoriesmobile/index/cate/678/default.htm">狩猎运动</a></li>
+</ul>
+<ul>
+<li><a class="hunting" href="mobile_zh/decathlon/categoriesmobile/index/cate/217/default.htm" >目标运动</a></li>
+</ul>            </div>
+            <div class="user-panel">
+                <ul>
+                    <li><a href="mobile_zh/customer/account/default.htm" class="link-dashboard">我的账号</a></li>
+                    <li><a href="mobile_zh/wishlist/default.htm" class="link-wishlist">心愿单</a></li>
+                    <li><a href="mobile_zh/checkout/cart/default.htm" class="link-cart">购物车</a></li>
+                    <li><a href="mobile_zh/sales/order/history/default.htm" class="link-orders">我的订单</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="featured-products">
+        <p><a href="mobile_zh/running-c71632.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_featured/2014-1-29/mobile_Home_page_featured_04.jpg" alt="" /></a></p>
+<p><a href="mobile_zh/golf-c104369.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_featured/2014-1-29/mobile_Home_page_featured_06.jpg" alt="" /></a></p>
+<p><a href="mobile_zh/cycling-c104606.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_featured/2014-1-29/mobile_Home_page_featured_10.jpg" alt="" /></a></p>
+<p><a href="mobile_zh/rackets-sports-c83155.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_featured/2014-1-29/mobile_Home_page_featured_11.jpg" alt="" /></a></p>    </div>
+    <div id="home-sports-blocks">
+        <div class="block">
+            <div class="promo">
+<p class="sort"><a href="mobile_zh/hiking-and-camping/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/sort1.jpg" alt="" /></a></p>
+<p class="banner"><a href="mobile_zh/hiking-c106671.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/2014-1-29/mobile_Home_page_floorbanner_16.jpg" alt="" /></a></p>
+</div>
+<p class="links"> <a href="mobile_zh/camping-tents">帐篷</a> <a href="mobile_zh/hiking-and-camping-backpacks">登山包</a>  <a href="mobile_zh/hiking-and-camping-hiking-jackets">冲锋衣</a><a href="mobile_zh/hiking-and-camping-pants">户外裤</a><a href="mobile_zh/hiking-and-camping-light-hiking-shoes">徒步鞋</a></p>        </div>
+        <div class="block">
+            <div class="promo">
+<p class="banner"><a href="mobile_zh/fitness-1284413.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/2014-1-29/mobile_Home_page_floorbanner_19.jpg" alt="" /></a></p>
+<p class="sort"><a href="mobile_zh/fitness/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/mobile_Home_page_flooricon_21.jpg" alt="" /></a></p>
+</div>
+<p class="links"><a href="mobile_zh/fitness-length-pants">长裤</a> <a href="mobile_zh/fitness-jackets">夹克衫</a> <a href="mobile_zh/fitness-sweaters">套头衫 </a> <a href="mobile_zh/mini-steppers">踏步机</a><a href="mobile_zh/exercise-bikes">健身自行车</a></p>        </div>
+        <div class="block">
+            <div class="promo">
+<p class="sort"><a href="mobile_zh/winter-sports_2527/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/mobile_Home_page_flooricon_24.jpg" alt="" /></a></p>
+<p class="banner"><a href="mobile_zh/winter-sports-c70484.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/2014-1-29/mobile_Home_page_floorbanner_26.jpg" alt="" /></a></p>
+</div>
+<p class="links"><a href="mobile_zh/winter-sports-underwear">内衣</a> <a href="mobile_zh/winter-sports-jackets-softshells">滑雪夹克</a> <a href="mobile_zh/winter-sports-down-jackets">羽绒服</a> <a href="mobile_zh/skiboards">滑雪双板</a> <a href="mobile_zh/snowboards">滑雪单板</a></p>        </div>
+        <div class="block">
+            <div class="promo">
+<p class="banner"><a href="mobile_zh/water-sports-c105176.html/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/2014-1-29/mobile_Home_page_floorbanner_29.jpg" alt="" /></a></p>
+<p class="sort"><a href="mobile_zh/water-sports/default.htm"><img src="http://media.decathlon.com.cn/media/wysiwyg/m_home_uni/mobile_Home_page_flooricon_31.jpg" alt="" /></a></p>
+</div>
+<p class="links"> <a href="mobile_zh/sailing-fleece-softshell-sweaters">抓绒衣</a> <a href="mobile_zh/sailing-jackets">夹克/风衣</a><a href="mobile_zh/watch-breaths">潜水镜</a> <a href="mobile_zh/sailing-t-shirts-polo">T恤</a> <a href="mobile_zh/surfing-t-shirts-solar-protections">防晒衫</a></p>        </div>
+    </div>
+</div>
+<script>
+jQuery(function($){
+    // Homepage slideshow
+    $('#home-slides').slidesjs({
+        width: 320,
+        height: 148,
+        navigation: true,
+        play: {
+            interval: 3000,
+            auto: true
+        },
+        callback: {
+            loaded: function(number) {
+                var slidesCount = $('#home-slides .slidesjs-control').children().size(),
+                    statusWidth = (parseFloat(1 / slidesCount) * 100) + '%';
+
+                $('#home-slides > .slidesjs-pagination > li').width(statusWidth);
+            }
+        }
+    });
+
+    // Mainmenu slideshow
+    $('#home-main-menu > .content > .home-nav').slidesjs({
+        width: 320,
+        height: 172,
+        navigation: {
+            active: true
+        },
+        callback: {
+            loaded: function(number) {
+                $('.home-nav > .slidesjs-container').siblings().wrapAll($('<div />').addClass('control'));
+                $('.home-nav .slidesjs-pagination').children(':nth-child(' + number + ')').addClass('current');
+            },
+            complete: function(number) {
+                $('.home-nav .slidesjs-pagination').children(':nth-child(' + number + ')').addClass('current').siblings().removeClass('current');
+            }
+        }
+    });
+
+    // Home main menu Tab switcher
+    $('#home-main-menu > .tabs > li').click(function(){
+        $(this).addClass('current').siblings().removeClass('current').parent().next().children(':eq(' + $(this).index() + ')').addClass('active').siblings().removeClass('active');
+    });
+});
+</script>    </section></div>
+              <footer id="footer">
+    <div class="user-panel">
+        <ul>
+                    <li class="sign-in"><a href="{% url 'wapApp:redirectlog' %}">登录</a></li>
+            <li class="register"><a href="{% url 'wapApp:redirectreg' %}">注册</a></li>
+                </ul>
+        <a href="#" id="scroll-top">TOP</a>
+    </div>
+    <div class="footer-links">
+<ul>
+<li><a href="mobile_zh/default.htm">首 页</a></li>
+<li><a href="mobile_zh/decathlon/categoriesmobile/default.htm">全部分类</a></li>
+<li><a href="mobile_zh/checkout/cart/default.htm">购物车</a></li>
+<li><a href="mobile_zh/customer/account/default.htm">我的账号</a></li>
+<li><a href="mobile_zh/catalogsearch/advanced/default.htm">搜索</a></li>
+</ul>
+</div>
+<div class="footer-extra">
+<div class="help-links">
+<p><a href="mobile_zh/contacts/default.htm">客服</a> <a href="mobile_zh/help-center/default.htm">帮助</a></p>
+</div>
+</div>    <div class="footer-extra">
+            <div id="store-switcher">
+        <ul class="switcher-options">
+                                                            <li>
+                                                                <a href="../www.decathlon.com.cn/zh/@___store=zh">电脑版</a>
+                                    </li>
+                                                            <li class="selected">
+                                                                <a href="mobile_zh/@___store=mobile_zh">触屏版</a>
+                                    </li>
+                    </ul>
+    </div>
+            <div id="language-switcher">
+
+    </div>
+        <address class="copyright"><p>Copyright &copy;service.china@decathlon.com</p></address>
+    </div>
+    <!-- <address class="copyright">Copyright 2003-2013, Oxylane Group or its Affiliates. 沪ICP备13006202号</address> -->
+
+</footer>
+       <div class="popup"><div id="category-nav"><div class="close-btn">关闭</div></div>
+    <div class="overlay"></div>
+    <nav id="mobi-toolbar" class="mobi-toolbar">
+        <div class="open">&nbsp;</div>
+        <ul>
+            <li class="down">&nbsp;</li>
+            <li class="close">&nbsp;</li>
+            <li class="home"><a href="mobile_zh/default.htm">首页</a></li>
+            <li class="dashboard"><a href="mobile_zh/customer/account/default.htm">我的迪卡侬</a></li>
+            <li class="allcategories">
+        <a class="preclick" href="mobile_zh/decathlon/categoriesmobile/default.htm">运动分类</a>
+        <a class="clicked" href="#">运动分类</a>
+            </li>
+            <li class="cart"><a href="mobile_zh/checkout/cart/default.htm">购物车</a></li>
+            <li class="history"><a href="mobile_zh/sales/order/history/default.htm">我的订单</a></li>
+            <li class="advaced"><a href="mobile_zh/catalogsearch/advanced/default.htm">搜索</a></li>
+        </ul>
+    </nav>
+</div>
+
+
+  </div>
+  <div id='b' style="display:none;">b</div>
+  <div id='c' style="display:none;">c</div>
+  <div id='d' style="display:none;">d</div>
+    <footer class="aui-bar aui-bar-tab" id="footer">
+        <div class="aui-bar-tab-item aui-active" tapmode>
+            <i class="aui-iconfont aui-icon-home"></i>
+            <div class="aui-bar-tab-label">首页</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <i class="aui-iconfont aui-icon-star"></i>
+            <div class="aui-bar-tab-label">收藏</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <div class="aui-badge">99</div>
+            <i class="aui-iconfont aui-icon-cart"></i>
+            <div class="aui-bar-tab-label">购物车</div>
+        </div>
+        <div class="aui-bar-tab-item" tapmode>
+            <div class="aui-dot"></div>
+            <i class="aui-iconfont aui-icon-my"></i>
+            <div class="aui-bar-tab-label">我的商城</div>
+        </div>
+    </footer>
+</body>
+<script type="text/javascript" src="{% static 'aui/js/api.js' %}" ></script>
+<script type="text/javascript" src="{% static 'aui/js/aui-tab.js' %}" ></script>
+<script type="text/javascript">
+   apiready = function(){
+        api.parseTapmode();
+    }
+    var tab = new auiTab({
+        element:document.getElementById("footer")
+    },function(ret){
+        console.log(ret);
+        if(ret.index==1) {
+
+            document.getElementById("a").style.display = 'block';
+            document.getElementById("b").style.display = 'none';
+            document.getElementById("c").style.display = 'none';
+            document.getElementById("d").style.display = 'none';
+        }
+            if(ret.index==2){
+
+            document.getElementById("a").style.display = 'none';
+            document.getElementById("b").style.display = 'block';
+             document.getElementById("c").style.display = 'none';
+            document.getElementById("d").style.display = 'none';
+        }
+        if(ret.index==3){
+
+            document.getElementById("a").style.display = 'none';
+            document.getElementById("b").style.display = 'none';
+             document.getElementById("c").style.display = 'block';
+            document.getElementById("d").style.display = 'none';
+        }
+        if(ret.index==4){
+
+            document.getElementById("a").style.display = 'none';
+            document.getElementById("b").style.display = 'none';
+             document.getElementById("c").style.display = 'none';
+            document.getElementById("d").style.display = 'block';
+        }
+
+    });
+</script>
+</html>
