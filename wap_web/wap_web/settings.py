@@ -25,7 +25,7 @@ SECRET_KEY = '!egtaf0z(d-j9a3*526hi0tb^v=4fx697hdfep2u(yp2p0_=e5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.2.34']
+ALLOWED_HOSTS = ['192.168.1.100']
 
 
 # Application definition
@@ -125,5 +125,5 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')#这是自己配置的静态文件路径
-DOMAIN='http://192.168.2.34:8000/wapApp'
+DOMAIN='http://192.168.1.100:8000/wapApp'
 

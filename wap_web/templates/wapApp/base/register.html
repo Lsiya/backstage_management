@@ -67,10 +67,21 @@
 <script>
     $(document).ready(function() {
         $('#regist').click(function(){
+            var patrn = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$/;
+            var patrn1=/^([\u4e00-\u9fa5]{2,4}|[a-zA-Z]{2,16})$/g;
+            var patrn2 =/^([0-9A-Za-z\-_\.]+)@([0-9A-Za-z]+\.[A-Za-z]{2,3}(\.[A-Za-z]{2})?)$/g;
             if($('#username').val()=='用户名'||$('#password').val=='密码'||$('#email').val()=='邮箱'){
                 alert('请填写完整注册信息')
                 window.location.reload()
-            }else{
+            }else if(!patrn.exec($('#password').val())){
+                alert('密码不符合要求')
+            }else if(!patrn1.exec($('#username').val())){
+                alert('用户名不符合要求')
+            }else if(!patrn2.exec($('#email').val())){
+                 alert('邮箱不符合要求')
+            }
+                else
+            {
                     {#                $('#regist').attr('href','#pagetwo')#}
                     $.ajax({
                     url: "/wapApp/regist/",

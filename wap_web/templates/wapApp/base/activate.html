@@ -12,14 +12,7 @@
     <div class="aui-content-padded">
         <div class="aui-btn aui-btn-block aui-btn-warning" tapmode onclick="openDialog()">激活</div>
     </div>
-<form role="form" >
-                        {% csrf_token %}
-                        <input type="hidden" name="user_id" value="{{ user_info.id }}">
-                        <input type="hidden" name="add_date" value="{{ user_info.add_date }}">
-                        <input type="hidden" name="username" value="{{ user_info.username }}">
-                        <input type="hidden" name="password" value="{{ user_info.password }}">
 
-                    </form>
 </body>
 <script src="{% static 'js/jquery-1.10.1.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'aui/js/api.js' %}" ></script>
@@ -31,31 +24,53 @@
     }
     var dialog = new auiDialog();
     function openDialog(){
+        var password='{{ user_info.password }}';
+        var user_id='{{ user_info.id }}';
+
         dialog.prompt({
-                    title:"弹出提示",
-                    text:'默认内容',
+                    title:"验证密码",
+                    text:'密码',
                     type:'number',
                     buttons:['取消','确定']
-                },function(){
-                    $.ajax({
-                    url: "/wapApp/activeUser/",
-                    type: "POST",
-                    data: $("#form").serialize(),
-                    dataType: "JSON",
-                    success: function (d) {
-                        if (d.status == 'activesuccess') {
-                            alert(d.msg)
-                            window.location.reload()
-                        }
-                        if (d.status == 'error') {
-                            alert(d.msg)
-                            window.location.reload()
-                        }if (d.status == 'overtime') {
-                            alert(d.msg)
-                            window.location.reload()
-                        }
-                    }
+                },function(ret){
+                    if(ret.text==password && ret.buttonIndex == 2){
+                        $.ajax({
+                           url: "/wapApp/activeUser",
+                           type: "get",
+                           data: {'user_id':user_id},
+                           dataType: "JSON",
+                           success: function (d) {
+                               if (d.status == 'overtime') {
+                                 dialog.alert({
+                                    title: "消息提示",
+                                    msg: "激活链接失效,请重新注册" ,
+                                    buttons: ['确定']
+                                });
+                                   window.location.reload()
+                               }
+                                  if (d.status == 'activesuccess') {
+                                 dialog.alert({
+                                    title: "消息提示",
+                                    msg: "激活成功" ,
+                                    buttons: ['确定']
+                                });
+                                   window.location.href='{% url 'wapApp:redirectlog' %}'
+                               }
+                           }
                 })
+                    }else {
+                        if (ret.buttonIndex != 1) {
+                        dialog.alert({
+                            title: "密码验证错误",
+                            msg: "您的密码是：" + password,
+                            buttons: ['确定']
+                        });
+                    }
+                    }
+
+
+
+
                 })
     }
 </script>

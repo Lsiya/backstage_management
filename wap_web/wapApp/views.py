@@ -43,6 +43,7 @@ def regist(request):
         add_date = int(time.time())
         user = User.objects.create(username=username, password=password,email=email, add_date=add_date)
         user.is_active = 0
+
         # user.active_date = 0
         user.save()
         sendEmail(user)
@@ -54,12 +55,12 @@ def sendEmail(user):
     mail_host = "smtp.163.com"
     mail_user = "15805156299@163.com"
     mail_pass = "lsiya19950109"
-    username=user.username
+    user_id = str(user.id)
     # username=username.encode('utf-8')
     sender = "15805156299@163.com"
     receivers = [user.email]
     content ="\n".join([u'{0},欢迎加入minio掌上商城'.format(user.username), u'请访问该链接，完成用户验证:',
-	        '/'.join([django_settings.DOMAIN,'activate?username='+username]),u'有效激活时间是4小时内'])
+	        '/'.join([django_settings.DOMAIN,'activate?id='+user_id]),u'有效激活时间是4小时内'])
     title = '激活您的掌上商城账号'
     message = MIMEText(content, 'html', 'utf-8')
     message['From'] = '掌上商城邮箱管理员'+'<'+sender+'>'
@@ -73,34 +74,26 @@ def sendEmail(user):
     except smtplib.SMTPException as e:
         print(e)
 def activate(request):
-    request.encoding = 'gb2312'
-    username = request.GET.get('username')
-    username = username.encode('utf-8')
+    # request.encoding = 'gb2312'
+    user_id = int(request.GET['id'])
+    # username = username.encode('utf-8')
     # import urllib.parse
     # username = urllib.parse.unquote(request.GET.get('username'),'GBK')
     # print(username)
-    user_info = User.objects.get(username=username)
+    user_info = User.objects.get(id=user_id)
     return render(request,'../templates/wapApp/base/activate.html',{'user_info':user_info})
 def activeUser(request):#激活时要确定激活的id,完善激活的严谨性
     # active_date = timezone.now()
     # User.objects.filter(id=1).update(is_active=1)
-    activeuser = request.POST.get('activeuser')
-    username = request.POST.get('username')
-    activepassword = request.POST.get('activepassword')
-    password = request.POST.get('password')
-    if(activeuser=="" or activepassword==""):
-        return HttpResponse('{"status":"improve","msg":"请完善登录信息"}')
-    elif(activeuser!=username or activepassword!=password):
-        return HttpResponse('{"status":"error","msg":"用户名或者密码与注册信息不一致"}')
+    user_info = User.objects.get(id=int(request.GET.get('user_id')))
+    if(int(time.time()) > (user_info.add_date+4*24*60*3600)):
+        return HttpResponse('{"status":"overtime","msg":"激活连接失效，请重新注册"}')
     else:
-        if(int(time.time()) > (int(request.POST.get('add_date'))+4*24*60*3600)):
-            return HttpResponse('{"status":"overtime","msg":"激活连接失效，请重新注册"}')
-        else:
-            user = User.objects.get(id=request.POST.get('user_id'))
-            user.is_active = 1
-            user.active_date = int(time.time())
-            user.save()
-            return HttpResponse('{"status":"activesuccess","msg":"激活成功"}')
+        user = User.objects.get(id=request.GET.get('user_id'))
+        user.is_active = 1
+        user.active_date = int(time.time())
+        user.save()
+        return HttpResponse('{"status":"activesuccess","msg":"激活成功"}')
 # 登录
 def redirectlog(request):
     return render(request, '../templates/wapApp/base/login.html')
@@ -113,11 +106,10 @@ def login(request):
         if info.exists() and is_active.exists():
             info_dict = {'username': username}
             request.session['username'] = username
-            return render(request, '../templates/wapApp/index.html', {'info_dict': info_dict})
-        elif not info.exists():
-            return HttpResponse('{"status":"fail","msg":"登录失败，用户名或密码错误"}')
+            return HttpResponse('{"status":"success"}')
+
         else:
-            return HttpResponse('{"status":"not_active","msg":"用户未激活,请查看邮箱的激活链接"}')
+            return HttpResponse('{"status":"error","msg":"登录失败"}')
     else:
         return HttpResponse('{"status":"fail","msg":"登录失败，用户名或密码错误"}')
 
